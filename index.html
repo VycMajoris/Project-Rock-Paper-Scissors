@@ -44,12 +44,45 @@
             else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
                 return (`You win! ${playerSelection} beats ${computerSelection}`);
             }
+        }
 
-            const playerSelection = "rock";
-            const computerSelection = getComputerChoice();
-            console.log(firstRound(playerSelection, computerSelection));
+
+
+        function game(firstRound) {
+            let playerScore = 0;
+            let computerScore = 0;
+
+
+            for (let i = 0; i < 5; i++) {
+                let playerChoice = prompt("Make your move!");
+                let computerChoice = getComputerChoice();
+                if ((firstRound(playerChoice, computerChoice)).includes("tie")) {
+                    playerScore++;
+                    computerScore++;
+                    console.log("It's a tie");
+                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                }
+                else if ((firstRound(playerChoice, computerChoice)).includes("lose")) {
+                    computerScore++;
+                    console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
+                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                }
+                else {
+                    playerScore++;
+                    console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                }
+            }
+
+            console.log("The final score is: " + "You: " + playerScore + "  Computer: " + computerScore);
 
         }
+
+        game(firstRound);
+
+
+
+
 
     </script>
 </body>
