@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let choices = ["Rock", "Paper", "Scissors"];
+        function getComputerChoice() {
+            let randomChoice = choices[Math.floor((Math.random()) * choices.length)];
+            return randomChoice;
+        }
+
+        function round1(playerSelection, computerSelection) {
+            if (playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") {
+                console.log("It's a tie");
+            } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            }
+            else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
+                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            }
+            else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") {
+                console.log("It's a tie");
+            }
+            else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
+                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            }
+            else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            }
+            else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") {
+                console.log("It's a tie");
+            }
+            else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
+                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            }
+            else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>
