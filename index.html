@@ -6,85 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="rps.js" defer></script>
 </head>
 
 <body>
-    <script>
 
-        let choices = ["Rock", "Paper", "Scissors"];
-        function getComputerChoice() {
-            let randomChoice = choices[Math.floor((Math.random()) * choices.length)];
-            return randomChoice;
-        }
+    <div>
+        <div class="emojiAndText">
+            <button class="gameButtons" id="rockButton"> &#x270A</button>
+            <p>ROCK</p>
+        </div>
 
-        function firstRound(playerSelection, computerSelection) {
-            if (playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") {
-                return ("It's a tie");
-            } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
-                return (`You win! ${playerSelection} beats ${computerSelection}`);
-            }
-            else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
-                return (`You lose! ${computerSelection} beats ${playerSelection}`);
-            }
-            else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") {
-                return ("It's a tie");
-            }
-            else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
-                return (`You lose! ${computerSelection} beats ${playerSelection}`);
-            }
-            else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
-                return (`You win! ${playerSelection} beats ${computerSelection}`);
-            }
-            else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") {
-                return ("It's a tie");
-            }
-            else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
-                return (`You lose! ${computerSelection} beats ${playerSelection}`);
-            }
-            else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
-                return (`You win! ${playerSelection} beats ${computerSelection}`);
-            }
-        }
+        <div class="emojiAndText">
+            <button class="gameButtons" id="paperButton">&#x270B</button>
+            <P>PAPER</P>
+        </div>
+
+        <div class="emojiAndText">
+            <button class="gameButtons" id="scissorsButton">&#x270C</button>
+            <P>SCISSORS</P>
+        </div>
 
 
-
-        function game(firstRound) {
-            let playerScore = 0;
-            let computerScore = 0;
-
-
-            for (let i = 0; i < 5; i++) {
-                let playerChoice = prompt("Make your move!");
-                let computerChoice = getComputerChoice();
-                if ((firstRound(playerChoice, computerChoice)).includes("tie")) {
-                    playerScore++;
-                    computerScore++;
-                    console.log("It's a tie");
-                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
-                }
-                else if ((firstRound(playerChoice, computerChoice)).includes("lose")) {
-                    computerScore++;
-                    console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
-                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
-                }
-                else {
-                    playerScore++;
-                    console.log(`You win! ${playerChoice} beats ${computerChoice}`);
-                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
-                }
-            }
-
-            console.log("The final score is: " + "You: " + playerScore + "  Computer: " + computerScore);
-
-        }
-
-        game(firstRound);
+    </div>
 
 
 
 
 
-    </script>
 </body>
 
 </html>
