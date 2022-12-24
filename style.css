@@ -1,4 +1,11 @@
-div {
+.allButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.gameButtonGroup {
     display: flex;
     gap: 20px;
     box-sizing: border-box;
@@ -6,11 +13,17 @@ div {
 }
 
  .gameButtons {
-    border-style: dotted;
+    /* border-style: dotted; */
     width: 200px;
     height: 200px;
     font-size: 150px;
 } 
+
+#startButton {
+    width: 100px;
+    height: 50px;
+    align-self: center;
+}
 
 .emojiAndText {
     display: flex;
