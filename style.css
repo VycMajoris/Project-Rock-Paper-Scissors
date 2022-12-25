@@ -49,3 +49,7 @@
     height: 200px;
     text-align: center;
 }
+
+#finalScore {
+    align-self: center;
+}

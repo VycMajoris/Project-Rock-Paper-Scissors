@@ -10,6 +10,7 @@ let start  = document.getElementById('startButton');
 
 let showScore1 = document.getElementById('scoreArea1');
 let showScore2 = document.getElementById('scoreArea2');
+let finalScore = document.getElementById('finalScore');
 
 // make buttons disabled before start button is pressed
 
@@ -34,11 +35,18 @@ function playRound(choices) {
 
             
             if (playerScore === 5 || computerScore === 5) {
-                gameOver();
-                
-                
-                
 
+                if(playerScore===computerScore) {
+                    finalScore.textContent = "Game Over! It's a tie. " + "You: " + playerScore + "  Computer: " + computerScore; 
+                } else if (playerScore>computerScore) {
+                    finalScore.textContent = "You won! " + "You: " + playerScore + "  Computer: " + computerScore; 
+                } else {
+                    finalScore.textContent = "Computer won! " + "You: " + playerScore + "  Computer: " + computerScore; 
+                }
+                
+                gameOver(); 
+
+                
 
             }
             
@@ -113,14 +121,15 @@ function changeBackground () {
         rock.disabled = false;
         paper.disabled = false;
         scissor.disabled = false;
+
+        finalScore.textContent = "";
         
     } 
 
- function pressed (string1, string2) {
-    console.log( string1 + " " + string2);
- }
+
 
  function pressedRock () {
+   
     let compChoice = getComputerChoice();
     let choicesArray = ["rock", compChoice];
     playRound(choicesArray);
@@ -146,9 +155,10 @@ function changeBackground () {
                 paper.disabled = true;
                 scissor.disabled = true;
                 
-                console.log("Game Over! Final score is " + "You: " + playerScore + "  Computer: " + computerScore);                
+                               
                 displayScores(playerScore,computerScore);
                 playerScore =0;
                 computerScore=0;
+                
                 
  }
