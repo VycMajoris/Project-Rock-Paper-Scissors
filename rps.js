@@ -8,6 +8,9 @@ let paper = document.getElementById('paperButton');
 let scissor = document.getElementById('scissorsButton');
 let start  = document.getElementById('startButton');
 
+let showScore1 = document.getElementById('scoreArea1');
+let showScore2 = document.getElementById('scoreArea2');
+
 // make buttons disabled before start button is pressed
 
 rock.disabled = true;
@@ -31,8 +34,9 @@ function playRound(choices) {
 
             
             if (playerScore === 5 || computerScore === 5) {
-                console.log("Game Over! Final score is " + "You: " + playerScore + "  Computer: " + computerScore);
                 gameOver();
+                
+                
                 
 
 
@@ -41,112 +45,65 @@ function playRound(choices) {
             if (choices[0] === "rock" && choices[1] === "Rock") {
                 
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
             } else if (choices[0] === "rock" && choices[1] === "Scissors") {
                 
                 playerScore++;
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
 
             }
             else if (choices[0] === "rock" && choices[1] === "Paper") {
                 
                 computerScore++;
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
             }
             else if (choices[0] === "paper" && choices[1] === "Paper") {
                 
                 
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
             }
             else if (choices[0] === "paper" && choices[1] === "Scissors") {
                 
                 computerScore++;
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
             }
             else if (choices[0] === "paper" && choices[1] === "Rock") {
                 
                 playerScore++;
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
             }
             else if (choices[0] === "scissors" && choices[1] === "Scissors") {
                 
                 
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
             }
             else if (choices[0] === "scissors" && choices[1] === "Rock") {
                 
                 computerScore++;
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
             }
             else if (choices[0] === "scissors" && choices[1] === "Paper") {
                 
                 playerScore++;
                 console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
+                displayScores(playerScore,computerScore);
             }
          }
         
 
-/* function score (choice) {
-            let playerScore;
-            let computerScore;
-            
+     
+function displayScores(playerScore, computerScore) {
+    showScore1.textContent = playerScore;
+    showScore2.textContent = computerScore;
+}
 
-            for (let i = 0; playerScore != 5 && computerScore != 5; i++) {
-                if(playRound(choice) === 0) {
-                    playerScore = playerScore;
-                } else if (playRound(choice) === -1) {
-                    computerScore++;
-                } else {
-                    playerScore++;
-                }
-                
-            }
-
-            console.log("The final score is: " + "You: " + playerScore + "  Computer: " + computerScore); */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /*function game(playRound) {
-            let playerScore = 0;
-            let computerScore = 0;
-
-
-            for (let i = 0; playerScore != 5 && computerScore != 5; i++) {
-                let playerSelection = prompt("Make your move!");
-                let computerSelection = getComputerChoice();
-                if ((playRound(playerSelection, computerSelection)).includes("tie")) {
-                    playerScore++;
-                    computerScore++;
-                    console.log("It's a tie");
-                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
-                }
-                else if ((playRound(playerSelection, computerSelection)).includes("lose")) {
-                    computerScore++;
-                    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
-                }
-                else {
-                    playerScore++;
-                    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-                    console.log("Current score is " + "You: " + playerScore + "  Computer: " + computerScore);
-                }
-            }
-
-            console.log("The final score is: " + "You: " + playerScore + "  Computer: " + computerScore);
-
-        }  */   
-
-      
 function changeBackground () {
         // make buttons active and change the backgrounds of buttons
         rock.style.backgroundColor = "yellow";
@@ -187,7 +144,11 @@ function changeBackground () {
  function gameOver () {
                 rock.disabled = true;
                 paper.disabled = true;
-                scissor.disabled = true; 
+                scissor.disabled = true;
+                
+                console.log("Game Over! Final score is " + "You: " + playerScore + "  Computer: " + computerScore);                
+                displayScores(playerScore,computerScore);
                 playerScore =0;
                 computerScore=0;
+                
  }

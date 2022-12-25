@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 40px;
     
 }
 
@@ -35,3 +36,16 @@
     font-size: 24px;
 }
 
+.scoreDivs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    box-sizing: border-box;
+}
+
+.outerScoreDiv {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
